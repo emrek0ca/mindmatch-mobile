@@ -1,0 +1,90 @@
+{
+  "expo": {
+    "name": "MindMatch",
+    "slug": "mindmatch-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "mindmatch",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/images/icon.png",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      },
+      "bitcode": false,
+      "bundleIdentifier": "com.mindmatch.mobile",
+      "buildNumber": "4"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F8F5F0",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.CAMERA",
+        "android.permission.INTERNET",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.WAKE_LOCK",
+        "android.permission.BLUETOOTH"
+      ]
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#FFFFFF",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 76,
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "MindMatch sesli mesaj kaydı ve aramalar için mikrofona erişir."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Profilin ve hikâyelerin için fotoğraf seçmene izin ver.",
+          "cameraPermission": "Hikâye ve profil medyası çekmek için kameraya erişim gerekir.",
+          "microphonePermission": "Görüntülü görüşmelerde ses kullanmak için mikrofona erişim gerekir."
+        }
+      ],
+      "expo-asset",
+      "expo-video",
+      "./plugins/withIosSceneLifecycle",
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "MindMatch görüntülü görüşmelerde kameranı kullanır.",
+          "microphonePermission": "MindMatch sesli ve görüntülü görüşmelerde mikrofonunu kullanır."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

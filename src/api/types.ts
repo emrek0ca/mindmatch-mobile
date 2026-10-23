@@ -1,0 +1,22 @@
+export type AuthResponse = { userId: string; email: string; accessToken: string; refreshToken: string; accessTokenExpiresAtUtc: string };
+export type Me = { userId: string; email: string; role: string; isActive: boolean };
+export type Profile = { userId: string; displayName: string; nickname: string; bio?: string; birthDate?: string; gender?: number; genderPreference?: number; minimumMatchAge?: number; maximumMatchAge?: number; age?: number; city?: string; isProfileVisible: boolean; allowMessageRequests: boolean; allowCallsFromNonMatches: boolean; showOnlineStatus: boolean; showLastSeen: boolean; showReadReceipts: boolean; showPremiumBadge: boolean; premiumPriorityOptIn: boolean; interestIds: string[]; discoveryReasons: string[] };
+export type DiscoveryPage = { items: Profile[]; page: number; pageSize: number; hasMore: boolean };
+export type Mood = { mood: number; energy: number; desiredConversation: number; expiresAtUtc: string; isExpired: boolean };
+export type Conversation = { id: string; otherUserId: string; lastMessageAtUtc?: string; createdAtUtc: string };
+export type Message = { id: string; conversationId: string; senderId: string; content?: string; type: number; status: number; mediaAssetId?: string; createdAtUtc: string; isDeletedForEveryone: boolean };
+export type MessagePage = { items: Message[]; hasMore: boolean; nextBeforeCreatedAtUtc?: string; nextBeforeMessageId?: string };
+export type Story = { id: string; userId: string; mediaAssetId?: string; mediaType: number; caption?: string; createdAtUtc: string; expiresAtUtc: string; hasViewed: boolean };
+export type Notification = { id: string; type: number; title: string; body: string; referenceId?: string; createdAtUtc: string; readAtUtc?: string };
+export type NotificationPage = { items: Notification[]; hasMore: boolean; nextBeforeCreatedAtUtc?: string; nextBeforeId?: string };
+export type Match = { id: string; requesterId: string; receiverId: string; conversationId?: string; status: number; createdAtUtc: string; respondedAtUtc?: string; endedAtUtc?: string };
+export type MessageRequest = { conversationId: string; senderId: string; receiverId: string; createdAtUtc: string; initialMessage?: string };
+export type Presence = { isOnline: boolean; lastSeenAtUtc?: string };
+export type Report = { id: string; reporterId: string; reportedUserId: string; reason: number; description?: string; status: number; createdAtUtc: string; messages?: { contentSnapshot?: string }[] };
+export type MediaAsset = { id: string; category: number; contentType: string; lengthBytes: number; width?: number; height?: number };
+export type Premium = { isPremium: boolean; expiresAtUtc?: string };
+export type Interest = { id: string; name: string; category?: string };
+export type Call = { id: string; conversationId: string; callerId: string; receiverId: string; type: number; status: number; startedAtUtc: string; answeredAtUtc?: string; endedAtUtc?: string };
+export type AccountStatus = { isActive: boolean; isFrozenByAdmin: boolean; selfDeactivatedAtUtc?: string; adminFreezeReason?: string; adminFrozenUntilUtc?: string };
+export type ModerationHistory = { id: string; action: string; reason?: string; actorUserId?: string; createdAtUtc: string };
+
